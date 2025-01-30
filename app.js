@@ -1,5 +1,5 @@
-var numeroSecreto;
-var intentos;
+var numeroSecreto = 0;
+var intentos = 1;
 var listaNumeros = [];
 const numeroMaximo = 20;
 const numeroIntentos = 5;
@@ -8,8 +8,6 @@ document
 	.getElementById("botonIntentar")
 	.addEventListener("click", verificarIntento);
 document.getElementById("reiniciar").addEventListener("click", iniciarJuego);
-
-//document.getElementById("reiniciar").disabled = true;
 
 function insertarTexto(elemento, texto) {
 	let elementoHTML = document.querySelector(elemento);
@@ -62,6 +60,8 @@ function numeroAleatorio() {
     return numeroAleatorio();
   } else {
     listaNumeros.push(numeroGenerado);
+		console.log(listaNumeros);
+		
     return numeroGenerado;
   }
   } else {
