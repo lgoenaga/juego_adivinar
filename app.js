@@ -1,15 +1,15 @@
-let titulo = insertarTexto("h1", "Juego Adivina el número");
-let numeroSecreto;
-let intentos;
-let listaNumeros = [];
-let numeroMaximo = 20;
+var numeroSecreto;
+var intentos;
+var listaNumeros = [];
+const numeroMaximo = 20;
+const numeroIntentos = 5;
 iniciarJuego();
-titulo.style.color = "violet";
 document
 	.getElementById("botonIntentar")
 	.addEventListener("click", verificarIntento);
 document.getElementById("reiniciar").addEventListener("click", iniciarJuego);
-document.getElementById("reiniciar").disabled = true;
+
+//document.getElementById("reiniciar").disabled = true;
 
 function insertarTexto(elemento, texto) {
 	let elementoHTML = document.querySelector(elemento);
@@ -39,7 +39,7 @@ function verificarIntento() {
 		} else {
 			insertarTexto("p", "El número secreto es mayor");
 		}
-		if (intentos < 3) {
+		if (intentos < numeroIntentos) {
 			intentos++;
 			limpiarInput();
 		} else {
@@ -81,6 +81,8 @@ function iniciarJuego() {
 	console.log("Número secreto: ", numeroSecreto);
 	insertarTexto("p", `Ingresa un número del 1 al ${numeroMaximo}`);
 	limpiarInput();
+  let titulo = insertarTexto("#titulo", "Juego Adivina el número");
+  titulo.style.color = "violet";
 }
 
 function intercambiarBoton() {
